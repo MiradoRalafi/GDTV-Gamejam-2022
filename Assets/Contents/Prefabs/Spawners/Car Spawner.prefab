@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &649267345550762367
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 649267345550762366}
+  - component: {fileID: 649267345550762353}
+  m_Layer: 0
+  m_Name: Car Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &649267345550762366
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649267345550762367}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -40.5, y: 0.745, z: -2.726}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &649267345550762353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649267345550762367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c1c0823be22db4c8268f7f7866378a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPrefabs:
+  - {fileID: 6762712143846145919, guid: e778a23bbe795fc42827494e5d635524, type: 3}
+  - {fileID: 4592906981851829956, guid: 86646ad0b3ded544d9dd5db9436b3714, type: 3}
+  - {fileID: -715999205793029216, guid: 67071bebbe68fc545a3b606c434aa77f, type: 3}
+  - {fileID: -5708175746614439774, guid: d76ccd9bba014e24eb4e07e86df746e7, type: 3}
+  - {fileID: 9196057983850311082, guid: c666d569d969b6c4ea76c0cd21a55cfc, type: 3}
+  - {fileID: 4574658209109468565, guid: e79cf1bda94203d4db52196555f2dfa9, type: 3}
+  - {fileID: -2257920576973675880, guid: 5fe0d2816183fb447b860ad12e13398c, type: 3}
+  - {fileID: -1866638721396251313, guid: b49c6f450a89f8642944078a1f09d4d4, type: 3}
+  - {fileID: -520377645662902681, guid: 26a2f44fb113c8d4587071c3d896b787, type: 3}
+  - {fileID: 3810935324474162101, guid: 0cd24f5a6dda9f3498071674a5f8c6bd, type: 3}
+  - {fileID: -7213939584181565007, guid: 0569a22673479374496789ebdb66f6b4, type: 3}
+  - {fileID: -3688105357901873549, guid: ef80b440aca48474a9409086221c86b4, type: 3}
+  - {fileID: -6929750891798624454, guid: 8f5d2bf50e9ef6648bdd18131c375aeb, type: 3}
+  spawnRateMin: 2
+  spawnRateMax: 5
+  minMoveSpeed: 7.5
+  maxMoveSpeed: 15
