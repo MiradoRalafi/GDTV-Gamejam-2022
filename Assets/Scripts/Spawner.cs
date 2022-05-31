@@ -67,7 +67,7 @@ public class Spawner : MonoBehaviour
             CreateNewElement();
         }
         MovingObject movingObject = pool.Dequeue();
-        movingObject.transform.position = transform.position;
+        movingObject.transform.position = new Vector3(transform.position.x, movingObject.transform.position.y, (movingObject.transform.position.z));
         movingObject.transform.rotation = transform.rotation;
         movingObject.MoveSpeed = currentMoveSpeed;
         movingObject.Lifetime = 50f;
@@ -77,7 +77,7 @@ public class Spawner : MonoBehaviour
 
     private void CreateNewElement()
     {
-        MovingObject element = Instantiate(currentSpawnPrefab, transform);
+        MovingObject element = Instantiate(currentSpawnPrefab, transform, false);
         element.gameObject.SetActive(false);
         element.Spawner = this;
         pool.Enqueue(element);

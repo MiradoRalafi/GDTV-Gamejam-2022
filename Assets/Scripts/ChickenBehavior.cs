@@ -38,6 +38,7 @@ public class ChickenBehavior : MonoBehaviour
     private NavMeshAgent agent;
     private PlayerController player;
     private AudioSource source;
+    private Animator animator;
 
     #endregion
 
@@ -54,6 +55,7 @@ public class ChickenBehavior : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         player = FindObjectOfType<PlayerController>();
         source = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -73,12 +75,14 @@ public class ChickenBehavior : MonoBehaviour
                 Vector3 randomDirection = new Vector3(randomX, 0, randomZ).normalized;
                 agent.destination = transform.position + randomDirection * Random.Range(minMoveDistance, maxMoveDistance);
                 moving = true;
+                animator.SetBool("Walk", true);
             }
         }
         if (Vector3.Distance(transform.position, player.transform.position) <= distanceBeforeRun)
         {
             moving = false;
             running = true;
+            animator.SetBool("Run", true);
             Vector3 destinationVector = (transform.position - player.transform.position);
             destinationVector = new Vector3(destinationVector.x, 0, destinationVector.z).normalized;
             agent.destination = new Vector3(transform.position.x, 0, transform.position.z) + destinationVector * Random.Range(minRunDistance, maxRunDistance);
@@ -87,6 +91,8 @@ public class ChickenBehavior : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, agent.destination) < .1f)
             {
+                animator.SetBool("Walk", false);
+                animator.SetBool("Run", false);
                 moving = false;
                 running = false;
                 timeBeforeMove = Random.Range(minTimeBeforeMove, maxTimeBeforeMove);
@@ -115,7 +121,8 @@ public class ChickenBehavior : MonoBehaviour
         {
             renderer.enabled = false;
         }
-        Instantiate(brainPrefab, new Vector3(transform.position.x, .65f, transform.position.z), Quaternion.identity);
+        Brain brain = Instantiate(brainPrefab, Vector3.zero, Quaternion.identity);
+        brain.transform.position = new Vector3(transform.position.x, .65f, transform.position.z);
         Destroy(gameObject, 1.5f);
     }
 }

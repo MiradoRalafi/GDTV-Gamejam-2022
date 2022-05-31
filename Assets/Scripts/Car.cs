@@ -31,7 +31,9 @@ public class Car : MovingObject
         base.Update();
         foreach(Transform tire in tires)
         {
-            tire.Rotate(tire.forward, tireRotationSpeed * Time.deltaTime);
+            //tire.Rotate(tire.forward, tireRotationSpeed * Time.deltaTime);
+            //tire.eulerAngles += tire.forward * tireRotationSpeed * Time.deltaTime;
+            tire.eulerAngles = new Vector3(0, 0, tire.eulerAngles.z + tireRotationSpeed * Time.deltaTime);
         }
     }
 }

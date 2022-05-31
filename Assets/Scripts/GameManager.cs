@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject warning;
 
+    [SerializeField]
+    private bool cursorVisible = true;
+
     #endregion
 
     #region CACHES
@@ -39,15 +42,14 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        Instance = this;
-        DontDestroyOnLoad(this);
-
+        Cursor.visible = cursorVisible;
         Player = FindObjectOfType<PlayerController>();
         if (Player)
         {
             Player.transform.position = spawnPoint.position;
             Player.transform.rotation = Quaternion.identity;
         }
+        Instance = this;
     }
 
     public void ReloadLevel()

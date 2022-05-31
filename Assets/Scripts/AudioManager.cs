@@ -29,7 +29,6 @@ public class AudioManager : MonoBehaviour
     {
         if (Instance && Instance != this)
         {
-            Instance.mainAudioSource = mainAudioSource;
             Destroy(gameObject);
             return;
         }

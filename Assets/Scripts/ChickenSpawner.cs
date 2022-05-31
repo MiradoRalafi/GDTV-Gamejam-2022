@@ -57,8 +57,8 @@ public class ChickenSpawner : MonoBehaviour
         Vector3 spawnPoint = default;
         while (!canSpawn)
         {
-            Vector3 direction = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(0f, 1f));
-            spawnPoint = player.transform.position + direction * Random.Range(15, 25);
+            Vector3 direction = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-.1f, 1f));
+            spawnPoint = player.transform.position + direction * Random.Range(7.5f, 10);
             RaycastHit hit;
             if(Physics.Raycast(spawnPoint + Vector3.up, Vector3.down, out hit, 3, spawnableLayer))
             {

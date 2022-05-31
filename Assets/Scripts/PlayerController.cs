@@ -25,6 +25,10 @@ public class PlayerController : MonoBehaviour
     private float initialHungerValue = 20f;
     [SerializeField]
     private Slider hungerBar;
+    [SerializeField]
+    private Image hungerBarFill;
+    [SerializeField]
+    private Gradient hungerBarColors;
 
     [Header("Audios")]
     [SerializeField]
@@ -100,6 +104,7 @@ public class PlayerController : MonoBehaviour
         {
             hunger -= Time.deltaTime;
             hungerBar.value = hunger / initialHungerValue;
+            hungerBarFill.color = hungerBarColors.Evaluate(hungerBar.value);
         }
         if (transform.position.y <= -1 || hunger <= 0)
         {
@@ -242,6 +247,10 @@ public class PlayerController : MonoBehaviour
         AudioManager.Instance.PlayOneShot(deathClips[Random.Range(0, deathClips.Length)]);
         GameManager.Instance.ReloadLevel();
         ResetHunger();
+        if (currentLog)
+        {
+            currentLog = null;
+        }
     }
 
     private void ResetHunger()
